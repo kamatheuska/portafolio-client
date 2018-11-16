@@ -7,8 +7,7 @@
 </template>
 
 <script>
-import './assets/css/resetStyles.css'
-import './assets/css/stylesheet.css'
+import './assets/css/styles.css'
 export default {
     name: 'App'
 }
