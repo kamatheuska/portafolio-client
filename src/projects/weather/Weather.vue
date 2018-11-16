@@ -93,7 +93,7 @@ export default {
         'icon-sunrain': SunAndRain,
         'icon-moonrain': MoonAndRain
     },
-    data() {
+    data () {
         return {
             currentTime: {
                 hours: new Date().getHours()
@@ -141,7 +141,7 @@ export default {
 
         ...mapState(['geolocation']),
 
-        setBackground() {
+        setBackground () {
             return {
                 'Weather__night': this.currentTime.hours < 6 || this.currentTime.hours > 19
             }
@@ -155,7 +155,7 @@ export default {
             'requestApi'
         ]),
 
-        changeUnits() {
+        changeUnits () {
             let temperature = this.weather.currently.temperature
             let unitTemp = this.weather.unitTemp
             if (unitTemp.current === 'ºC') {
@@ -171,7 +171,7 @@ export default {
             }
         },
 
-        fetchLocalWeather() {
+        fetchLocalWeather () {
             this.checkGeoSupport()
                 .then(() => this.getClientGeolocation())
                 .then((pos) => this.requestApi({
@@ -186,12 +186,12 @@ export default {
                 })
         },
 
-        fetchOthersWeather() {
+        fetchOthersWeather () {
             let location = this.otherLocation
             this.requestApi({
-                    location,
-                    service: 'other'
-                })
+                location,
+                service: 'other'
+            })
                 .then((res) => {
                     this.weatherSuccessHandler(res)
                 })
@@ -200,7 +200,7 @@ export default {
                 })
         },
 
-        showWeatherIcon(responseIcon) {
+        showWeatherIcon (responseIcon) {
             let iconNames = Object.keys(this.weather.icon)
 
             iconNames.forEach((iconName, i) => {
@@ -213,7 +213,7 @@ export default {
             })
         },
 
-        showIconAndHideOthers() {
+        showIconAndHideOthers () {
             let keys = Object.keys(this.weather.icon)
             keys.forEach((key) => {
                 this.weather.icon[key] = false
@@ -221,7 +221,7 @@ export default {
             return Promise.resolve()
         },
 
-        weatherSuccessHandler(res) {
+        weatherSuccessHandler (res) {
             console.log('SUCCESS************')
             this.weather = Object.assign({}, this.weather, res.data)
             this.weather.status.error = false
@@ -229,13 +229,13 @@ export default {
             this.weather.show = true
         },
 
-        errorHandler(error) {
+        errorHandler (error) {
             console.log('Error on fetchLocalWeather', error)
             this.weather.status.error = false
         }
     },
     filters: {
-        toFixedDecimal(num, dec) {
+        toFixedDecimal (num, dec) {
             return num.toFixed(dec)
         }
     }
