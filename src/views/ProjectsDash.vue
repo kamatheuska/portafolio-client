@@ -1,6 +1,6 @@
 <template>
     <div class="ProjectsDash">
-        <h1>ProjectsDash</h1>
+        <h1 @click="goHome">ProjectsDash</h1>
         <Nav :data="links" />
     </div>
 </template>
@@ -13,8 +13,24 @@ export default {
         return {
             links: [
                 {
-                    href: '/projects/RQMachine',
-                    title: 'RQMachine'
+                    href: '/projects/rqmachine',
+                    title: 'Random Movie Quotes'
+                },
+                {
+                    href: '/projects/twitchtv',
+                    title: 'Twich TV Streams'
+                },
+                {
+                    href: '/projects/weather',
+                    title: 'Weather App'
+                },
+                {
+                    href: '/projects/matiz',
+                    title: 'Matiz App'
+                },
+                {
+                    href: '/projects/earthbnb',
+                    title: 'Earthbnb App'
                 }
             ]
         }
@@ -23,6 +39,9 @@ export default {
         Nav
     },
     methods: {
+        goHome () {
+            this.$router.push('/')
+        }
 
     },
     computed: {
@@ -32,5 +51,10 @@ export default {
 </script>
 
 <style scoped>
-/* .ProjectsDash {} */
+.ProjectsDash {
+    padding: 2rem
+}
+.ProjectsDash h1 {
+    padding: 3rem;
+}
 </style>
