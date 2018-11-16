@@ -1,9 +1,14 @@
 @import 'mixins';
+@import 'config/config';
 
 body, html {
     @include container();
     font-size: 12px;
     font-family: 'Roboto', sans-serif;
+}
+
+#app {
+    padding: 3rem;
 }
 
 ul,
@@ -47,12 +52,12 @@ li {
     list-style-type: none;
 }
 
-h1 { @include heading__roboto(3rem) }
-h2 { @include heading__roboto(2.8rem) }
-h3 { @include heading__roboto(1.9rem) }
-h4 { @include heading__roboto(1.6rem) }
-h5 { @include heading__roboto(1.3rem) }
-h6 { @include heading__roboto(.9rem) }
+h1 { @include generate__font(3rem, $font__extralight) }
+h2 { @include generate__font(2.8rem) }
+h3 { @include generate__font(1.9rem) }
+h4 { @include generate__font(1.6rem) }
+h5 { @include generate__font(1.3rem) }
+h6 { @include generate__font(.9rem) }
 
 input,
 textarea {
