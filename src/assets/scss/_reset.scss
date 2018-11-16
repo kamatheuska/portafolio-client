@@ -1,0 +1,65 @@
+@import 'mixins';
+
+body, html {
+    @include container();
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+}
+
+ul,
+menu,
+dir {
+    margin: 0;
+    padding: 0;
+}
+
+html * {
+    box-sizing: border-box;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+textarea,
+select,
+input {
+    font-family: monospace;
+    padding-left: 0.5rem;
+    background-color: #fff;
+    border: 1px #ccc solid;
+    padding: 10px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    -webkit-margin-before: 0.1em;
+    -webkit-margin-after: 0.1em;
+}
+
+li {
+    list-style-type: none;
+}
+
+h1 { @include heading__roboto(3rem) }
+h2 { @include heading__roboto(2.8rem) }
+h3 { @include heading__roboto(1.9rem) }
+h4 { @include heading__roboto(1.6rem) }
+h5 { @include heading__roboto(1.3rem) }
+h6 { @include heading__roboto(.9rem) }
+
+input,
+textarea {
+    font-size: 14px
+}
+
+fieldset {
+    border-radius: 5px;
+    margin-top: 5px;
+}
