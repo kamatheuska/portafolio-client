@@ -5,10 +5,10 @@ import Home from '@/views/Home'
 import Projects from '@/views/Projects'
 import ProjectsDash from '@/views/ProjectsDash'
 
-import Weather from '@/projects/weather/Weather'
-import RQMachine from '@/projects/rqmachine/RQMachine'
-import WikiViewer from '@/projects/wikiViewer/WikiViewer'
-import TwitchBrowser from '@/projects/twitchStreams/TwitchBrowser'
+import Weather from '@/projects/Weather'
+import RQMachine from '@/projects/RQMachine'
+import WikiViewer from '@/projects/WikiViewer'
+import TwitchBrowser from '@/projects/TwitchStreams'
 import Matiz from '@/projects/Matiz'
 import Earthbnb from '@/projects/Earthbnb'
 
@@ -44,31 +44,34 @@ export default new Router({
             children: [
                 {
                     path: '',
-                    component: ProjectsDash
-                },
-                {
-                    path: 'weather',
-                    component: Weather
-                },
-                {
-                    path: 'rqmachine',
-                    component: RQMachine
-                },
-                {
-                    path: 'wikiviewer',
-                    component: WikiViewer
-                },
-                {
-                    path: 'twitchtv',
-                    component: TwitchBrowser
-                },
-                {
-                    path: 'matiz',
-                    component: Matiz
-                },
-                {
-                    path: 'earthbnb',
-                    component: Earthbnb
+                    component: ProjectsDash,
+                    children: [
+                        {
+                            path: 'weather',
+                            component: Weather
+                        },
+                        {
+                            path: 'rqmachine',
+                            component: RQMachine
+                        },
+                        {
+                            path: 'wikiviewer',
+                            component: WikiViewer
+                        },
+                        {
+                            path: 'twitchtv',
+                            component: TwitchBrowser
+                        },
+                        {
+                            path: 'matiz',
+                            component: Matiz
+                        },
+                        {
+                            path: 'earthbnb',
+                            component: Earthbnb
+                        }
+
+                    ]
                 }
             ]
         }

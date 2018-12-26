@@ -1,22 +1,3 @@
-<!-- THE NAV COMPONENT:
-    1. props: {
-        data: [
-            {
-                href: <PATH TO ROUTE>,
-                title: <TEXT TO DISPLAY>
-            },
-            {
-                ...
-            },
-            ...
-        ]
-    }
-
-    2. Call it like:
-
-    <Nav :data="<DATA-ARRAY>">
--->
-
 <template>
 <nav>
     <ul class="Nav__ul">
@@ -57,6 +38,7 @@ export default {
     display: flex;
     width: 100%;
     justify-content: space-around;
+    margin-bottom: 20px;
 }
 
 .Nav__li {

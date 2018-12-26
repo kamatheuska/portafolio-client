@@ -1,12 +1,18 @@
 <template>
     <div class="ProjectsDash">
-        <h1 @click="goHome">ProjectsDash</h1>
+        <div>
+            <h1>
+                <span @click="goHome">ProjectsDash</span>
+            </h1>
+        </div>
         <Nav :data="links" />
+        <router-view />
     </div>
 </template>
 
 <script>
 import Nav from '@/components/Nav'
+
 export default {
     name: 'app-projects-dash',
     data () {
@@ -52,9 +58,10 @@ export default {
 
 <style scoped>
 .ProjectsDash {
-    padding: 2rem
+    padding: 5px
 }
 .ProjectsDash h1 {
     padding: 3rem;
+    cursor: pointer;
 }
 </style>
