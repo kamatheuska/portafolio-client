@@ -17,11 +17,10 @@ export default {
     name: 'ProjectHeader',
     data () {
         return {
-           defaultError: 'Some Error ocurred.' 
+            defaultError: 'Some Error ocurred.'
         }
     },
     props: [ 'title', 'subtitle', 'vendor', 'error' ]
-    
+
 }
 </script>
-
