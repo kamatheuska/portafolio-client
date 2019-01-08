@@ -8,7 +8,7 @@ import ProjectsDash from '@/views/ProjectsDash'
 import Weather from '@/projects/Weather'
 import RQMachine from '@/projects/RQMachine'
 import WikiViewer from '@/projects/WikiViewer'
-import TwitchBrowser from '@/projects/TwitchStreams'
+import Twitch from '@/projects/Twitch'
 import Matiz from '@/projects/Matiz'
 import Earthbnb from '@/projects/Earthbnb'
 
@@ -60,7 +60,7 @@ export default new Router({
                         },
                         {
                             path: 'twitchtv',
-                            component: TwitchBrowser
+                            component: Twitch
                         },
                         {
                             path: 'matiz',

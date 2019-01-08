@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import axios from 'axios'
 
 import weather from '@/projects/Weather/module'
+import twitch from '@/projects/Twitch/module'
 
 import {
     truthyArguments
@@ -55,9 +56,10 @@ export default new Vuex.Store({
 
                 case 'weather/other': {
                     let { units, exclude } = rootGetters['weather/getConfig']
-                    console.log('Printing- - - - -:value', value)
                     return Object.assign({}, { units, exclude }, { address: value })
                 }
+                default:
+                    return null
             }
         },
         getApiUrl: ({ baseURL }) => (service) => `${baseURL.api}${service}`
@@ -68,29 +70,15 @@ export default new Vuex.Store({
         }
     },
     actions: {
-        showSubmenu ({ commit, state }, name) {
-            let menu = state.homepage.navigation
-                .filter(el => el.name === name)[0]
-            commit('HANDLE_NAVIGATION_STATUS', menu)
-            commit('TOGGLE_HOME_CONNECTORS', menu)
-        },
-
-        hideSubmenu ({ commit, state }) {
-            commit('SET_NAVIGATION_TO_HOME')
-        },
-
         requestApi ({ state, rootGetters, getters }, payload) {
-            console.log('Printing- - - - -:payload', payload)
             let config = getters.getApiPayload(payload)
             let url = getters.getApiUrl(state.service)
-            console.log('Printing- - - - -:payload', payload)
-            console.log('Printing- - - - -:config', config)
-            if (!truthyArguments([ url, config ])) {
-                throw new Error('No URL or config on requestApi.')
-            }
             switch (state.service) {
                 case 'weather/local':
                 case 'weather/other':
+                    if (!truthyArguments([ url, config ])) {
+                        throw new Error('No URL or config on requestApi.')
+                    }
                     return axios
                         .create()
                         .post(url, config)
@@ -127,6 +115,7 @@ export default new Vuex.Store({
         }
     },
     modules: {
-        weather
+        weather,
+        twitch
     }
 })
